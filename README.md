@@ -1,6 +1,6 @@
 # SSHZ
 
-A command line tool wraps ssh client and adds rz/sz support for windows terminal in WSL.
+A command line tool wraps ssh client and adds rz/sz support for Windows Terminal in WSL.
 
 ## Prerequisite
 
