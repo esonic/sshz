@@ -46,17 +46,7 @@ func main() {
 				// skip output
 				continue
 			}
-
-			for len(data) > 0 {
-				w, err := os.Stdout.Write(data)
-				if err != nil {
-					fmt.Printf("stdout error: %s\n", err)
-					_ = setRawMode(false)
-					os.Exit(1)
-					return
-				}
-				data = data[w:]
-			}
+			writeAll(os.Stdout, data)
 		}
 	}()
 
@@ -69,6 +59,19 @@ func main() {
 		panic(err)
 	}
 	_ = cmd.Wait()
+}
+
+func writeAll(out io.Writer, data []byte) {
+	for len(data) > 0 {
+		w, err := out.Write(data)
+		if err != nil {
+			fmt.Printf("out error: %s\n", err)
+			_ = setRawMode(false)
+			os.Exit(1)
+			return
+		}
+		data = data[w:]
+	}
 }
 
 func setRawMode(start bool) error {
