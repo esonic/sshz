@@ -15,11 +15,11 @@ Run the following command in WSL to install the tool:
 
 `go install github.com/esonic/sshz@latest`
 
-The tool will be in $GOPATH/bin.
+The tool will be installed in $GOPATH/bin.
 
 ## Usage
 
-Use the tool same as `ssh`. eg. `sshz someone@127.0.0.1`
+The tool can be used as same as `ssh`. eg. `sshz someone@127.0.0.1`
 
 The file dialog will appear when call rz and sz.
 
